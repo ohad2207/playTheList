@@ -8,6 +8,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install
+      - run: echo '{"url":"${{ vars.SERVER_URL }}"}' > electron/config.json
+        shell: bash
       - run: npx electron-builder --win portable --publish never
       - uses: actions/upload-artifact@v4
         with: { name: playTheList-exe, path: dist/playTheList.exe }
@@ -19,7 +21,7 @@ jobs:
         with: { distribution: temurin, java-version: 17 }
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: 8.10.2 }
-      - run: gradle assembleDebug --no-daemon
+      - run: gradle assembleDebug --no-daemon -PSERVER_URL=${{ vars.SERVER_URL }}
         working-directory: android
       - uses: actions/upload-artifact@v4
         with: { name: playTheList-apk, path: android/app/build/outputs/apk/debug/app-debug.apk }

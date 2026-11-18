@@ -10,12 +10,17 @@ public class MainActivity extends Activity {
     CookieManager.getInstance().setAcceptCookie(true);
     w.setWebChromeClient(new WebChromeClient());
     w.setWebViewClient(new WebViewClient(){
-      @Override public void onReceivedError(WebView v,WebResourceRequest r,WebResourceError e){if(r.isForMainFrame())ask("לא ניתן להתחבר. בדקו את הכתובת:");}
+      @Override public void onReceivedError(WebView v,WebResourceRequest r,WebResourceError e){if(r.isForMainFrame())fail();}
     });
     if(Build.VERSION.SDK_INT>=33)requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"},1);
     startForegroundService(new Intent(this,PlayService.class));
-    String u=sp.getString("url",null);
+    String u=BuildConfig.SERVER_URL.isEmpty()?sp.getString("url",null):BuildConfig.SERVER_URL;
     if(u==null)ask("כתובת השרת (למשל http://192.168.1.20:3000):");else w.loadUrl(u);
+  }
+  void fail(){
+    if(BuildConfig.SERVER_URL.isEmpty()){ask("לא ניתן להתחבר. בדקו את הכתובת:");return;}
+    new AlertDialog.Builder(this).setTitle("playTheList").setMessage("אין חיבור לשרת").setCancelable(false)
+      .setPositiveButton("נסה שוב",(d,i)->w.loadUrl(BuildConfig.SERVER_URL)).show();
   }
   void ask(String msg){
     EditText t=new EditText(this);t.setText(sp.getString("url","http://"));t.setSingleLine();
