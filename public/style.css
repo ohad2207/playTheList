@@ -1,0 +1,19 @@
+*{box-sizing:border-box}body{margin:0;background:#121212;color:#fff;font-family:system-ui,Arial,sans-serif}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0}
+main{padding:16px 16px 190px;max-width:900px;margin:auto}h1,h2{margin:.4em 0}
+input,select{width:100%;padding:12px;margin:6px 0;background:#2a2a2a;border:1px solid #444;border-radius:8px}
+.btn{background:#1db954;color:#000;font-weight:700;padding:12px 18px;border-radius:24px;display:inline-block;margin:6px 0}
+.btn.alt{background:#333;color:#fff}.err{color:#ff6b6b;min-height:1.2em}.muted{color:#aaa}
+.auth{max-width:340px;margin:12vh auto;text-align:center}.auth h1{font-size:2em;color:#1db954}
+.cubes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.cube{background:#2a2a2a;border-radius:8px;padding:14px;font-weight:700;min-height:64px;text-align:right}
+.row{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}.card{flex:0 0 130px;text-align:right}
+.card img{width:130px;height:130px;object-fit:cover;border-radius:8px;background:#222}.card small{display:block;overflow:hidden;max-height:2.6em;margin-top:4px}
+.li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #222;width:100%;text-align:right}
+.li img{width:48px;height:48px;border-radius:6px;object-fit:cover}.li .t{flex:1}
+#nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#181818;border-top:1px solid #333;padding-bottom:env(safe-area-inset-bottom)}
+#nav button{flex:1;padding:8px;font-size:20px;opacity:.6}#nav button.on{opacity:1;color:#1db954}#nav span{display:block;font-size:11px}
+#np{position:fixed;bottom:calc(60px + env(safe-area-inset-bottom));left:8px;right:8px;background:#2a2a2a;border-radius:10px;display:flex;align-items:center;gap:8px;padding:6px}
+#np[hidden],#nav[hidden]{display:none}#yt{width:120px;height:68px;flex:none;border-radius:6px;overflow:hidden}
+.npi{flex:1;min-width:0}.npi b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#np button{font-size:22px;padding:4px}
+.tog.on{background:#1db954;color:#000}

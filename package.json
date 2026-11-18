@@ -1,0 +1,6 @@
+{"name":"playthelist","version":"1.0.0","main":"electron/main.js","author":"playTheList",
+"scripts":{"start":"node server.js","app":"electron .","dist":"electron-builder --win portable --publish never"},
+"dependencies":{"bcryptjs":"^2.4.3","express":"^4.21.0","express-rate-limit":"^7.4.0","helmet":"^8.0.0"},
+"devDependencies":{"electron":"^39.0.0","electron-builder":"^25.1.8"},
+"build":{"appId":"com.playthelist.app","productName":"playTheList","files":["electron/**","server.js","public/**","package.json"],
+"win":{"target":"portable"},"portable":{"artifactName":"playTheList.exe"}}}
